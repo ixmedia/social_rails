@@ -1,0 +1,10 @@
+<% link = "https://www.instagram.com/editionsles400coups/" %>
+
+<div class="social__title">
+  instagram/<a href="<%= link %>" target="_blank">editionsles400coups</a>
+</div>
+<a href="<%= @post["link"] %>" target="_blank">
+  <img src="<%= @post["images"]["standard_resolution"]["url"] %>" class="social__image" />
+</a>
+<a href="<%= @post["link"] %>" class="social__text" target="_blank"><%== @post["caption"]["text"] %></a>
+<%= link_to '', link, class: 'social-icon social-icon--instagram', target: '_blank' %>

@@ -1,0 +1,7 @@
+<% link = "https://www.facebook.com/editionsles400coups/" %>
+
+<div class="social__title">
+  facebook/<a href="<%= link %>" target="_blank">editionsles400coups</a>
+</div>
+<a href="<%= @post["link"] %>" class="social__text" target="_blank"><%== @post["message"]%></a>
+<%= link_to '', link, class: 'social-icon social-icon--facebook', target: '_blank'%>
