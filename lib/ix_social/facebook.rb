@@ -1,5 +1,4 @@
 require 'koala'
-require 'ix_social/facebook/helpers'
 
 module IxSocial
   module Facebook
