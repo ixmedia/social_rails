@@ -8,7 +8,7 @@ module IxSocial
     # Instagram module for IxSocial
     class << self
 
-      attr_accessor :namespace
+      attr_accessor :uid
 
       def configure
         yield config
@@ -33,7 +33,7 @@ module IxSocial
       JSON.parse(instagram_call.body)['data'][0]
     end
 
-    self.namespace = 'ix_social/instagram'
+    self.uid = 'instagram'
 
   end
 end

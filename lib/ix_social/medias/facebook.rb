@@ -2,13 +2,14 @@ require 'koala'
 
 module IxSocial
   module Facebook
-    
+
     extend Cache
+    # extend MediasUtils
 
     # Facebook module for IxSocial
     class << self
 
-      attr_accessor :namespace
+      attr_accessor :uid
 
       def configure
         yield config
@@ -46,7 +47,6 @@ module IxSocial
       feed.next_page
     end
 
-    self.namespace = 'ix_social/facebook'
-
+    self.uid = 'facebook'
   end
 end

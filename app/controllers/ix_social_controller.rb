@@ -1,5 +1,6 @@
 class IxSocialController < ActionController::Base
-
+  require 'ix_social'
+  
   helper IxSocial::Engine.helpers
 
   if respond_to?(:helper_method)

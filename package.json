@@ -1,0 +1,15 @@
+{
+  "name": "ix_social",
+  "version": "1.0.0",
+  "description": "Javascript helper for ix_social rails engine",
+  "scripts": {
+    "start": "babel app/assets/javascripts/ix-social.js -w -o app/assets/javascripts/ix-social-compiled.js",
+    "compile": "babel app/assets/javascripts/ix-social.js -o app/assets/javascripts/ix-social-compiled.js"
+  },
+  "author": "Francis G (francis@ixmedia.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0"
+  }
+}

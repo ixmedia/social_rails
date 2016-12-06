@@ -1,5 +1,8 @@
 module IxSocial
   module Cache
+
+    include Utils
+
     # Methods used to manage cache
 
     # Manage cache state

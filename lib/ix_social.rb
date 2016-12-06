@@ -1,5 +1,5 @@
-require "ix_social/engine"
-require 'ix_social/cache'
+require 'ix_social/engine'
+require 'ix_social/utils'
 
 module IxSocial
 
@@ -10,4 +10,6 @@ module IxSocial
 
 end
 
+require 'ix_social/cache'
 require 'ix_social/medias/facebook'
+require 'ix_social/medias/instagram'
