@@ -2,9 +2,7 @@ class IxSocial::FacebookController < IxSocialController
   require 'ix_social'
 
   def latest
-    @post = IxSocial::Facebook.latest
-    render "#{IxSocial::Facebook.uid}/latest.html.erb"
+    render_social IxSocial::Facebook.latest, IxSocial::Facebook.uid
   end
 
 end
- 
