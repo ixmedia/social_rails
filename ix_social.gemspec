@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = IxSocial::VERSION
   s.authors     = ["Francis"]
   s.email       = ["fgoulet@ixmedia.com"]
-  s.homepage    = "https://github.com/francisgt"
+  s.homepage    = "https://pacman.ixmedia.com/ixmedia/social-rails"
   s.summary     = "social rails ix."
   s.description = "social rails ix"
   s.license     = "MIT"
