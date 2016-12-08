@@ -4,7 +4,10 @@ module IxSocial
 
   DEFAULT_CONFIG = {
     cooldown: 15.minutes,
-    max_characters: 140
+    public: {
+      max_characters: 140,
+      post_count: 1
+    }
   }
 
 end

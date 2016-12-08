@@ -14,9 +14,11 @@ window.IxSocial = () => {
 
     let namespace   = placeholders[i].dataset.namespace
     let node        = document.getElementById('social-' + namespace)
+    let options     = node.dataset.options
     let xhr         = new XMLHttpRequest();
 
-    xhr.open('GET', routes[namespace]);
+    // xhr.open('GET', `${routes[namespace]}?options=${options}`);
+    xhr.open('GET', routes[namespace])
 
     xhr.onload = () => {
       if (xhr.status === 200)

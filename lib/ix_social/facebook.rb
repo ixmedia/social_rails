@@ -8,13 +8,11 @@ module IxSocial
     # Module unique identifier
     self.uid = 'facebook'
 
+    # Facebook Graph Api requirements
     # Required:
     #   * app_id
     #   * app_secret
     #   * page_name
-    # Options:
-    #   * max_characters
-    #   * cooldown
     self.required = %w(app_id app_secret page_name)
 
     # Use Koala to fetch Facebook feed
@@ -24,15 +22,17 @@ module IxSocial
         client  = Koala::Facebook::API.new(oAuth.get_app_access_token)
 
         feed = client.get_connection(self.config.page_name, 'posts', {fields: ['link', 'message'] })
-        self.find_first_post(feed)
+        self.find_posts(feed)
       end
     end
 
     # @private
-    # Loop through Facebook feed to find first message post
-    def self.find_first_post feed
+    # Loop through Facebook feed to find posts with message
+    def self.find_posts feed
+      items = []
       feed.each do |item|
-        return item if item.has_key?("message")
+        items.push(item) if item.has_key?("message")
+        return items if items.count == self.config.public[:post_count]
       end
       feed.next_page
     end

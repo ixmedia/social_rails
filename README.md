@@ -22,7 +22,7 @@ In `config/initializers/ix_social.rb`
 ``` ruby
 IxSocial::Facebook.configure do |config|
   # App id
-  config.app_id = "[YOUR APP ID]}"
+  config.app_id = "[YOUR APP ID]"
   # App secret
   config.app_secret = "[YOUR APP SECRET]"
   # Page name
@@ -33,8 +33,8 @@ end
 ### Instagram
 
 #### Required
-
 `user_id`, `access_token`
+
 ``` ruby
 IxSocial::Instagram.configure do |config|
   # User id
@@ -43,22 +43,37 @@ IxSocial::Instagram.configure do |config|
   config.access_token = "[INSTAGRAM ACCESS TOKEN]"
 end
 ```
+
+#### Optional
+- `cooldown` (default 15 minutes)
+
+- `public[:post_count]` (default 1)
+
+- `public[:max_characters]` (default 140)
+
 -------
 ## Utilisation
-Use these view helpers:
+
+> Pour utiliser la cache de Rails en developement, ajouter ce fichier `tmp/caching-dev.txt`
+
+Use the view helper:
 
 
 ```ruby
-<%= ix_social_facebook %>
+<%= ix_social(:facebook, [options={}]) %>
 ```
 
-or
+Options must be an Hash of theses available options: 
 
-```ruby
-<%= ix_social_instagram %>
-```
-
+- `max_characters`
+- `post_count`
 
 ### Override templates
 
 Add a `app/views/[FACEBOOK||INSTAGRAM]/latest.html.erb` to your rails app to override the gem's default templates.
+
+Le tableau `@posts` est disponible dans ces vues.
+
+Ex.:
+
+> @posts.each { |post| p post["message"] }

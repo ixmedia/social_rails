@@ -1,4 +1,6 @@
-<a href="<%= @post["link"] %>" target="_blank">
-  <img src="<%= @post["images"]["standard_resolution"]["url"] %>"/>
-</a>
-<a href="<%= @post["link"] %>" target="_blank"><%== @post["caption"]["text"] %></a>
+<% @posts.each do |post| %>
+  <a href="<%= post["link"] %>" target="_blank">
+    <img src="<%= post["images"]["standard_resolution"]["url"] %>"/>
+  </a>
+  <a href="<%= post["link"] %>" target="_blank"><%== post["caption"]["text"] %></a>
+<% end %>

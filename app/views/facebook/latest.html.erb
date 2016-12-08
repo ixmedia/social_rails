@@ -1,1 +1,3 @@
-<a href="<%= @post["link"] %>" target="_blank"><%== @post["message"] %></a>
+<% @posts.each do |post| %>
+  <a href="<%= post["link"] %>" target="_blank"><%== post["message"] %></a>
+<% end %>
