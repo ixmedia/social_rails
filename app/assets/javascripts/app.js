@@ -4,8 +4,8 @@ window.IxSocial = () => {
   const intagram = 'instagram'
 
   const routes = {
-    facebook: '/social/facebook',
-    instagram: '/social/instagram'
+    facebook: '/facebook',
+    instagram: '/instagram'
   }
 
   const placeholders = document.getElementsByClassName('js-social')

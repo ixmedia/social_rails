@@ -6,8 +6,8 @@ window.IxSocial = function () {
   var intagram = 'instagram';
 
   var routes = {
-    facebook: '/facebook',
-    instagram: '/instagram'
+    facebook: '/social/facebook',
+    instagram: '/social/instagram'
   };
 
   var placeholders = document.getElementsByClassName('js-social');

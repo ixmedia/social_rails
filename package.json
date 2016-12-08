@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Javascript helper for ix_social rails engine",
   "scripts": {
-    "start": "babel app/assets/javascripts/app.js -w -o app/assets/javascripts/ix-social.js",
-    "compile": "babel app/assets/javascripts/app.js -o app/assets/javascripts/ix-social.js"
+    "start": "babel app/assets/javascripts/app.js -w -o app/assets/javascripts/ix_social/ix-social.js",
+    "compile": "babel app/assets/javascripts/app.js -o app/assets/javascripts/ix_social/ix-social.js"
   },
   "author": "Francis G (francis@ixmedia.com)",
   "devDependencies": {
