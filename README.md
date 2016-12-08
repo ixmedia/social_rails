@@ -14,11 +14,6 @@ gem 'ix_social'
 ## Configuration
 In `config/initializers/ix_social.rb`
 
-#### Optional
-`cooldown` (default 15 minutes)
-
-`post_count` (default 1)
-
 ### Facebook
 
 #### Required
@@ -48,6 +43,14 @@ IxSocial::Instagram.configure do |config|
   config.access_token = "[INSTAGRAM ACCESS TOKEN]"
 end
 ```
+
+#### Optional
+- `cooldown` (default 15 minutes)
+
+- `public[:post_count]` (default 1)
+
+- `public[:max_characters]` (default 140)
+
 -------
 ## Utilisation
 
@@ -59,6 +62,11 @@ Use the view helper:
 ```ruby
 <%= ix_social(:facebook, [options={}]) %>
 ```
+
+Options must be an Hash of theses available options: 
+
+- `max_characters`
+- `post_count`
 
 ### Override templates
 
