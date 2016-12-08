@@ -22,7 +22,7 @@ In `config/initializers/ix_social.rb`
 ``` ruby
 IxSocial::Facebook.configure do |config|
   # App id
-  config.app_id = "[YOUR APP ID]}"
+  config.app_id = "[YOUR APP ID]"
   # App secret
   config.app_secret = "[YOUR APP SECRET]"
   # Page name
