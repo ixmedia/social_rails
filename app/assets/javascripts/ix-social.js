@@ -16,8 +16,10 @@ window.IxSocial = function () {
 
     var namespace = placeholders[i].dataset.namespace;
     var node = document.getElementById('social-' + namespace);
+    var options = node.dataset.options;
     var xhr = new XMLHttpRequest();
 
+    // xhr.open('GET', `${routes[namespace]}?options=${options}`);
     xhr.open('GET', routes[namespace]);
 
     xhr.onload = function () {

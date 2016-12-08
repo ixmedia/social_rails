@@ -4,5 +4,4 @@ class IxSocial::FacebookController < IxSocialController
   def latest
     render_social IxSocial::Facebook.latest, IxSocial::Facebook.uid
   end
-
 end

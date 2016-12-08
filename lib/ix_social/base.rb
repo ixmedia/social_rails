@@ -27,5 +27,15 @@ module IxSocial
     def self.configured?
       self.required.all? { |required_config| !self.config[required_config].nil? }
     end
+
+    def self.set_public_options options
+      # Expire cache to allow api querying
+      if options.has_key?(:post_count) && options[:post_count] > self.config.public[:post_count]
+        self.expire
+      end
+
+      self.config.public = self.config.public.merge(options)
+    end
+
   end
 end

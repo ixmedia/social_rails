@@ -13,18 +13,12 @@ module IxSocial
       # Write to namespace if namespace is nonexistent.
       # Return cache namespace content.
       def latest
-        
-        unless Rails.cache.exist?(self.namespace)
-          Rails.cache.write(self.namespace, self.get, {expires_in: self.config.cooldown})
-        end
-
-        Rails.cache.fetch(self.namespace)
-
+        Rails.cache.fetch(self.namespace, {expires_in: self.config.cooldown}) { self.get }
       end
 
       # Expire namespace from cache
       def expire
-        p self.namespace
+        p 'expire'
         Rails.cache.delete(self.namespace)
       end
     end

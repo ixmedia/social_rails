@@ -14,6 +14,11 @@ gem 'ix_social'
 ## Configuration
 In `config/initializers/ix_social.rb`
 
+#### Optional
+`cooldown` (default 15 minutes)
+
+`post_count` (default 1)
+
 ### Facebook
 
 #### Required
@@ -33,8 +38,8 @@ end
 ### Instagram
 
 #### Required
-
 `user_id`, `access_token`
+
 ``` ruby
 IxSocial::Instagram.configure do |config|
   # User id
@@ -45,20 +50,22 @@ end
 ```
 -------
 ## Utilisation
-Use these view helpers:
+
+> Pour utiliser la cache de Rails en developement, ajouter ce fichier `tmp/caching-dev.txt`
+
+Use the view helper:
 
 
 ```ruby
-<%= ix_social_facebook %>
+<%= ix_social(:facebook, [options={}]) %>
 ```
-
-or
-
-```ruby
-<%= ix_social_instagram %>
-```
-
 
 ### Override templates
 
 Add a `app/views/[FACEBOOK||INSTAGRAM]/latest.html.erb` to your rails app to override the gem's default templates.
+
+Le tableau `@posts` est disponible dans ces vues.
+
+Ex.:
+
+> @posts.each { |post| p post["message"] }
