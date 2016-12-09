@@ -1,3 +1,10 @@
 <% @posts.each do |post| %>
+
+<% if post["full_picture"] && !post["full_picture"].empty? %>
+  <a href="<%= post["link"] %>" target="_blank">
+    <img src="<%= post["full_picture"] %>"/>
+  </a>
+<% end %>
+
   <a href="<%= post["link"] %>" target="_blank"><%== post["message"] %></a>
 <% end %>

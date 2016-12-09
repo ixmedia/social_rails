@@ -21,7 +21,7 @@ module IxSocial
         oAuth   = Koala::Facebook::OAuth.new(self.config.app_id, self.config.app_secret)
         client  = Koala::Facebook::API.new(oAuth.get_app_access_token)
 
-        feed = client.get_connection(self.config.page_name, 'posts', {fields: ['link', 'message'] })
+        feed = client.get_connection(self.config.page_name, 'posts', {fields: ['link', 'message', 'full_picture'] })
         self.find_posts(feed)
       end
     end
