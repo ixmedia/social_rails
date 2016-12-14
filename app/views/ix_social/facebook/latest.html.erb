@@ -1,10 +1,26 @@
-<% @posts.each do |post| %>
+<%# Latest facebook posts
+  - available local variables
+   posts
+-%>
 
-<% if post["full_picture"] && !post["full_picture"].empty? %>
-  <a href="<%= post["link"] %>" target="_blank">
-    <img src="<%= post["full_picture"] %>"/>
+<%# ixsocial_facebook.render do %>
+
+<%# end %>
+
+<% ixsocial_facebook.render do %>
+  <%= full_picture_tag %>
+<% end %>
+<%#= ixsocial_facebook.render do -%>
+  <%#= full_picture_tag %>
+<%# end -%>
+<!--
+<% #@posts.each do |post| %>
+
+<%# if post["full_picture"] && !post["full_picture"].empty? %>
+  <a href="<%#= post["link"] %>" target="_blank">
+    <img src="<%#= post["full_picture"] %>"/>
   </a>
-<% end %>
+<%# end %>
 
-  <a href="<%= post["link"] %>" target="_blank"><%== post["message"] %></a>
-<% end %>
+  <a href="<%#= post["link"] %>" target="_blank"><%#== post["message"] %></a>
+<%#end %> -->

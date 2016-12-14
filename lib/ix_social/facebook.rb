@@ -36,5 +36,8 @@ module IxSocial
       end
       feed.next_page
     end
+
   end
+
+  
 end
