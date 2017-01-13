@@ -1,7 +1,6 @@
 class IxSocial::FacebookController < IxSocialController
-  require 'ix_social'
-
-  def latest
-    render_social IxSocial::Facebook.uid
+  
+  def content
+    super IxSocial::Facebook.latest
   end
 end

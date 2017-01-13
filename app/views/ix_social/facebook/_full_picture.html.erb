@@ -1,5 +1,5 @@
-<% if post["full_picture"] && !post["full_picture"].empty? %>
-  <a href="<%= post["link"] %>" target="_blank">
-    <img src="<%= post["full_picture"] %>"/>
-  </a>
+<% if has_full_picture %>
+<a href="<%= link %>" target="_blank">
+  <img src="<%= full_picture %>"/>
+</a>
 <% end %>

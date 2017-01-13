@@ -1,11 +1,8 @@
 window.IxSocial = () => {
 
-  const facebook = 'facebook'
-  const intagram = 'instagram'
-
   const routes = {
-    facebook: '/facebook',
-    instagram: '/instagram'
+    facebook: '/social/facebook',
+    instagram: '/social/instagram'
   }
 
   const placeholders = document.getElementsByClassName('js-social')
@@ -22,7 +19,7 @@ window.IxSocial = () => {
 
     xhr.onload = () => {
       if (xhr.status === 200)
-        node.innerHTML = xhr.responseText
+        node.outerHTML = xhr.responseText
       else
         console.log(xhr.status)
     }

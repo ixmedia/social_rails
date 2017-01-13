@@ -13,6 +13,7 @@ module IxSocial
       # Write to namespace if namespace is nonexistent.
       # Return cache namespace content.
       def latest
+        Rails.cache.delete(self.namespace)
         Rails
           .cache
           .fetch(self.namespace, {expires_in: self.config.cooldown}) { self.get }

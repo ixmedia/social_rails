@@ -1,7 +1,6 @@
 class IxSocial::InstagramController < IxSocialController
-  require 'ix_social'
 
-  def latest
-    render_social IxSocial::Instagram.latest, IxSocial::Instagram.uid
+  def content
+    super IxSocial::Instagram.latest
   end
 end
