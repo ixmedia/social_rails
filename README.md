@@ -6,74 +6,68 @@ api limits.
 
 ## Installation
 
+**Gemfile**
+
 ``` ruby
 source 'http://gems.ixmedia.com:9292/'
 gem 'ix_social'
 ```
+
+**app/assets/javascripts/application.js**
+
+``` ruby
+//= require ix_social/ix-social.js
+```
+
+**config/routes.rb**
+
+``` ruby
+mount IxSocial::Engine => '/social'
+```
+
 ---------
+
 ## Configuration
-In `config/initializers/ix_social.rb`
 
-### Facebook
+Run `rails g ix_social:config`
 
-#### Required
-`app_id`, `app_secret`, `page_name`
+Edit `[Your project]/config/initializers/ix_social.rb`
 
-``` ruby
-IxSocial::Facebook.configure do |config|
-  # App id
-  config.app_id = "[YOUR APP ID]"
-  # App secret
-  config.app_secret = "[YOUR APP SECRET]"
-  # Page name
-  config.page_name = "[YOUR PAGE NAME]"
-end
+Each media options can be configured individually using `IxSocial::[Media].configure` method.
+
+```
+countdown #15.minutes by default
+public: {
+    post_count: # 1 by default
+}
 ```
 
-### Instagram
-
-#### Required
-`user_id`, `access_token`
-
-``` ruby
-IxSocial::Instagram.configure do |config|
-  # User id
-  config.user_id = "[USER ID]"
-  # Access token
-  config.access_token = "[INSTAGRAM ACCESS TOKEN]"
-end
-```
-
-#### Optional
-- `cooldown` (default 15 minutes)
-
-- `public[:post_count]` (default 1)
-
-- `public[:max_characters]` (default 140)
 
 -------
+
 ## Utilisation
 
-> Pour utiliser la cache de Rails en developement, ajouter ce fichier `tmp/caching-dev.txt`
+> Pour utiliser la cache de Rails en developement:
+> 
+> - cd to your project installation
+> - run `touch tmp/caching-dev.txt`
 
 Use the view helper:
 
-
 ```ruby
-<%= ix_social(:facebook, [options={}]) %>
+<%= ixsocial(:facebook [, options={}]) %>
 ```
 
 Options must be an Hash of theses available options: 
 
-- `max_characters`
-- `post_count`
+``` ruby
+post_count # 1 by default
+```
 
-### Override templates
+Use the following generator command to override views.
 
-Add a `app/views/[FACEBOOK||INSTAGRAM]/latest.html.erb` to your rails app to override the gem's default templates.
+``` ruby
+rails g ix_social:views
+```
 
-Le tableau `@posts` est disponible dans ces vues.
 
-Ex.:
-
-> @posts.each { |post| p post["message"] }
