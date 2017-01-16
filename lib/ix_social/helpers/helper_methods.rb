@@ -15,9 +15,9 @@ module IxSocial
       end
 
       def ixsocial_posts media
-        posts = []
-        the_content = content
-        if valid_media(media)
+        posts, the_content = [], content
+
+        if valid_media(media) && !the_content.nil?
           config = "IxSocial::#{media.to_s.capitalize}".constantize.config
           for i in 0..config.public[:post_count] - 1
             posts.push("IxSocial::Helpers::#{media.to_s.capitalize}".constantize.new(

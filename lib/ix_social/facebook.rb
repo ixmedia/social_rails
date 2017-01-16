@@ -17,13 +17,11 @@ module IxSocial
 
     # Use Koala to fetch Facebook feed
     def self.get
-      if self.configured?
-        oAuth   = Koala::Facebook::OAuth.new(self.config.app_id, self.config.app_secret)
-        client  = Koala::Facebook::API.new(oAuth.get_app_access_token)
+      oAuth   = Koala::Facebook::OAuth.new(self.config.app_id, self.config.app_secret)
+      client  = Koala::Facebook::API.new(oAuth.get_app_access_token)
 
-        feed = client.get_connection(self.config.page_name, 'posts', {fields: ['link', 'message', 'full_picture'] })
-        self.find_posts(feed)
-      end
+      feed = client.get_connection(self.config.page_name, 'posts', {fields: ['link', 'message', 'full_picture'] })
+      self.find_posts(feed)
     end
 
     # @private
