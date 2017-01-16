@@ -14,20 +14,24 @@ module IxSocial
         end
       end
 
-      def ixsocial_posts media
-        posts, the_content = [], content
+      %w(facebook instagram).each do |media|
+        eval <<-DEF, nil, __FILE__, __LINE__ + 1
+          def #{media}_posts
+            posts, the_content = [], content
 
-        if valid_media(media) && !the_content.nil?
-          config = "IxSocial::#{media.to_s.capitalize}".constantize.config
-          for i in 0..config.public[:post_count] - 1
-            posts.push("IxSocial::Helpers::#{media.to_s.capitalize}".constantize.new(
-              self,
-              the_content[i],
-              config
-            ))
+            if !the_content.nil?
+              config = "IxSocial::#{media.to_s.capitalize}".constantize.config
+              for i in 0..config.public[:post_count] - 1
+                posts.push("IxSocial::Helpers::#{media.to_s.capitalize}".constantize.new(
+                  self,
+                  the_content[i],
+                  config
+                ))
+              end
+            end
+            posts
           end
-        end
-        posts
+        DEF
       end
 
       protected
