@@ -6,13 +6,23 @@ api limits.
 
 ## Installation
 
+**Gemfile**
+
 ``` ruby
 source 'http://gems.ixmedia.com:9292/'
 gem 'ix_social'
 ```
 
-Dans votre application.js
+**app/assets/javascripts/application.js**
+
 ``` ruby
+//= require ix_social/ix-social.js
+```
+
+**config/routes.rb**
+
+``` ruby
+mount IxSocial::Engine => '/social'
 ```
 
 ---------
@@ -23,6 +33,16 @@ Run `rails g ix_social:config`
 
 Edit `[Your project]/config/initializers/ix_social.rb`
 
+Each media options can be configured individually using `IxSocial::[Media].configure` method.
+
+```
+countdown #15.minutes by default
+public: {
+    post_count: # 1 by default
+}
+```
+
+
 -------
 
 ## Utilisation
@@ -32,8 +52,6 @@ Edit `[Your project]/config/initializers/ix_social.rb`
 > - cd to your project installation
 > - run `touch tmp/caching-dev.txt`
 
-
-
 Use the view helper:
 
 ```ruby
@@ -42,7 +60,14 @@ Use the view helper:
 
 Options must be an Hash of theses available options: 
 
-- `max_characters`
-- `post_count`
+``` ruby
+post_count # 1 by default
+```
+
+Use the following generator command to override views.
+
+``` ruby
+rails g ix_social:views
+```
 
 
