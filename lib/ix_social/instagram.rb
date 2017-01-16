@@ -14,6 +14,7 @@ module IxSocial
     #   * access_token
     self.required = %w(user_id access_token)
 
+    # @private
     # Query instagram api with HTTParty
     def self.get
       instagram_call = HTTParty.get("https://api.instagram.com/v1/users/#{self.config.user_id}/media/recent?count=#{self.config.public[:post_count]}&access_token=#{self.config.access_token}")

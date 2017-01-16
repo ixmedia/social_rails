@@ -15,6 +15,7 @@ module IxSocial
     #   * page_name
     self.required = %w(app_id app_secret page_name)
 
+    # @private
     # Use Koala to fetch Facebook feed
     def self.get
       oAuth   = Koala::Facebook::OAuth.new(self.config.app_id, self.config.app_secret)
@@ -24,7 +25,6 @@ module IxSocial
       self.find_posts(feed)
     end
 
-    # @private
     # Loop through Facebook feed to find posts with message
     def self.find_posts feed
       items = []
