@@ -1,5 +1,5 @@
 module IxSocial
-  # rails g ix_social:views THEME
+  # rails g ix_social:views
   class ViewsGenerator < Rails::Generators::Base
 
     source_root File.expand_path('../../../../app/views/ix_social', __FILE__)
