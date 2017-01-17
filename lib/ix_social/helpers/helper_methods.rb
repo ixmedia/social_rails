@@ -25,6 +25,7 @@ module IxSocial
                 posts.push("IxSocial::Helpers::#{media.to_s.capitalize}".constantize.new(
                   self,
                   the_content[i],
+                  IxSocial::#{media.to_s.capitalize}.uid,
                   config
                 ))
               end

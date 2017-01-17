@@ -2,12 +2,9 @@ module IxSocial
   module Helpers
 
     class Instagram < Base
-      %w[picture caption].each do |tag|
-        eval <<-DEF, nil, __FILE__, __LINE__ + 1
-          def #{tag}_tag
-            #{tag.classify}.new @template, @content, IxSocial::Instagram.uid, @config
-          end
-        DEF
+      def initialize(template, content, scope, config)
+        @tags = %w(picture caption)
+        super
       end
     end
 
@@ -22,8 +19,14 @@ module IxSocial
       include InstagramPostPart
 
       def to_s(locals = {})
-        locals[:caption] = @content["caption"]["text"]
+        locals[:caption] = truncate(caption)
         super(locals)
+      end
+
+      protected
+
+      def caption
+        @content["caption"]["text"]
       end
     end
 

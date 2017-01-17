@@ -2,12 +2,9 @@ module IxSocial
   module Helpers
 
     class Twitter < Base
-      %w[tweet].each do |tag|
-        eval <<-DEF, nil, __FILE__, __LINE__ + 1
-          def #{tag}_tag
-            #{tag.classify}.new @template, @content, 'twitter', @config
-          end
-        DEF
+      def initialize(template, content, scope, config)
+        @tags = %w(tweet)
+        super
       end
     end
 

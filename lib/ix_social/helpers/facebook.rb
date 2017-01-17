@@ -2,19 +2,17 @@ module IxSocial
   module Helpers
 
     class Facebook < Base
-      %w[full_picture description].each do |tag|
-        eval <<-DEF, nil, __FILE__, __LINE__ + 1
-          def #{tag}_tag
-            #{tag.classify}.new @template, @content, 'facebook', @config
-          end
-        DEF
+
+      def initialize(template, content, scope, config)
+        @tags = %w(full_picture description)
+        super
       end
     end
 
     module FacebookPostPart
       def to_s(locals = {})
-        locals[:link] = @content["link"]
-        locals[:message] = @content["message"]
+        locals[:link]     = @content["link"]
+        locals[:message]  = truncate @content["message"]
         super(locals)
       end
     end
