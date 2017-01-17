@@ -1,3 +1,5 @@
+require 'twitter'
+
 module IxSocial
 
   # Twitter module for IxSocial
@@ -17,7 +19,7 @@ module IxSocial
     # @private
     # Query twitter api with Twitter gem
     def self.get
-      client = Twitter::REST::Client.new({
+      client = ::Twitter::REST::Client.new({
         consumer_key: self.config.consumer_key,
         consumer_secret: self.config.consumer_secret,
         access_token: self.config.access_token,

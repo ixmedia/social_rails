@@ -5,7 +5,7 @@ module IxSocial
       %w[tweet].each do |tag|
         eval <<-DEF, nil, __FILE__, __LINE__ + 1
           def #{tag}_tag
-            #{tag.classify}.new @template, @content, 'facebook', @config
+            #{tag.classify}.new @template, @content, 'twitter', @config
           end
         DEF
       end
