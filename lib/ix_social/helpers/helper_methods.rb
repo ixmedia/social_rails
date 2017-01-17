@@ -14,7 +14,7 @@ module IxSocial
         end
       end
 
-      %w(facebook instagram).each do |media|
+      %w(facebook instagram twitter).each do |media|
         eval <<-DEF, nil, __FILE__, __LINE__ + 1
           def #{media}_posts
             posts, the_content = [], content
@@ -38,7 +38,7 @@ module IxSocial
 
       def valid_media(media)
         # TODO : store medias array in BASE::var maybe? call me maybe
-        %w(facebook instagram).include?(media.to_s)
+        %w(facebook instagram twitter).include?(media.to_s)
       end
     end
   end

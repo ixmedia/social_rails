@@ -1,0 +1,7 @@
+<% twitter_posts.each do |post| %>
+  <div class="ixsocial ixsocial--twitter">
+  <%= post.render do -%>
+    <%= tweet_tag %>
+  <% end -%>
+  </div>
+<% end -%>
