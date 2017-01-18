@@ -1,31 +1,44 @@
+require 'ix_social/apis'
+
 module IxSocial
   module Helpers
 
     module HelperMethods
 
-      # Init a media
-      def ixsocial media, options = {}
-        method = "ixsocial_" + media.to_s
-
-        if valid_media(media)
-          media = "IxSocial::#{media.to_s.capitalize}".constantize
-          media.set_public_options(options)
-          render partial: 'ix_social/shared/placeholder', locals: {namespace: media.uid}
+      ##
+      # What starts it all.
+      # Render a placeholder with a namespace.
+      # To use in an view.
+      # Ex.: <%= ixsocial(:facebook [, {options}]) %>
+      #
+      # @param {Symbol} Must be one of these: `::APIS`
+      # @param {Hash} (Optional)
+      #
+      def ixsocial api, options = {}
+        if valid_media(api)
+          api = "IxSocial::API::#{api.to_s.capitalize}".constantize
+          api.set_public_options(options)
+          render partial: 'ix_social/shared/placeholder', locals: {namespace: api.uid}
         end
       end
 
-      %w(facebook instagram twitter).each do |media|
+      ##
+      # Build [api]_posts methods
+      # To use in a async rendered view
+      # Ex.: `facebook_posts.each do |post|`
+      #
+      IxSocial::APIs.each do |api|
         eval <<-DEF, nil, __FILE__, __LINE__ + 1
-          def #{media}_posts
+          def #{api}_posts
             posts, the_content = [], content
 
             if !the_content.nil?
-              config = "IxSocial::#{media.to_s.capitalize}".constantize.config
+              config = "IxSocial::API::#{api.to_s.capitalize}".constantize.config
               for i in 0..config.public[:post_count] - 1
-                posts.push("IxSocial::Helpers::#{media.to_s.capitalize}".constantize.new(
+                posts.push("IxSocial::Helpers::#{api.to_s.capitalize}".constantize.new(
                   self,
                   the_content[i],
-                  IxSocial::#{media.to_s.capitalize}.uid,
+                  IxSocial::API::#{api.to_s.capitalize}.uid,
                   config
                 ))
               end
@@ -37,9 +50,8 @@ module IxSocial
 
       protected
 
-      def valid_media(media)
-        # TODO : store medias array in BASE::var maybe? call me maybe
-        %w(facebook instagram twitter).include?(media.to_s)
+      def valid_media(api)
+        IxSocial::APIs.include?(api.to_s)
       end
     end
   end

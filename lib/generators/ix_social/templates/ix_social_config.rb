@@ -1,4 +1,4 @@
-IxSocial::Facebook.configure do |config|
+IxSocial::API::Facebook.configure do |config|
 
   # Required
 
@@ -7,7 +7,7 @@ IxSocial::Facebook.configure do |config|
   #config.page_name   = ""
 end
 
-IxSocial::Instagram.configure do |config|
+IxSocial::API::Instagram.configure do |config|
 
   # Required
 
@@ -15,7 +15,7 @@ IxSocial::Instagram.configure do |config|
   #config.access_token = ""
 end
 
-IxSocial::Twitter.configure do |config|
+IxSocial::API::Twitter.configure do |config|
 
   # Required
 

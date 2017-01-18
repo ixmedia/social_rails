@@ -5,6 +5,7 @@ module IxSocial
       def initialize(template, content, scope, config)
 
         @template, @content, @scope, @config = template, content, scope, config
+        # @tags ||= []
 
         @tags.each do |tag|
           eval <<-DEF, nil, __FILE__, __LINE__ + 1

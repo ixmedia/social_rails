@@ -13,10 +13,10 @@ module IxSocial
 end
 
 require 'ix_social/cache'
-require 'ix_social/base'
-require 'ix_social/facebook'
-require 'ix_social/instagram'
-require 'ix_social/twitter'
+require 'ix_social/apis/base'
+require 'ix_social/apis/facebook'
+require 'ix_social/apis/instagram'
+require 'ix_social/apis/twitter'
 require 'ix_social/helpers/tag'
 require 'ix_social/helpers/base'
 require 'ix_social/helpers/facebook'

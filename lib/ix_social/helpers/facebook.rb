@@ -2,7 +2,6 @@ module IxSocial
   module Helpers
 
     class Facebook < Base
-
       def initialize(template, content, scope, config)
         @tags = %w(full_picture description)
         super

@@ -1,6 +1,6 @@
 class IxSocial::FacebookController < IxSocialController
-  
+
   def content
-    super IxSocial::Facebook.latest
+    super IxSocial::API::Facebook.latest
   end
 end

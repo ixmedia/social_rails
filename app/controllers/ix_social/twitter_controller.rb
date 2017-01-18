@@ -1,7 +1,7 @@
 class IxSocial::TwitterController < IxSocialController
 
   def content
-    super IxSocial::Twitter.latest
+    super IxSocial::API::Twitter.latest
   end
 
 end
