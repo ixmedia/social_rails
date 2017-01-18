@@ -1,6 +1,6 @@
 # IxSocial
 
-Ease the pain of integrating **Facebook** and **Instagram** posts in a Rails app. Includes a configurable cache to keep your app from tipping over Facebook and Instagram
+Ease the pain of integrating **Facebook**, **Instagram** and **Twitter** posts in a Rails app. Includes a configurable cache to keep your app from tipping over Facebook and Instagram
 api limits.
 
 
@@ -39,6 +39,7 @@ Each media options can be configured individually using `IxSocial::[Media].confi
 countdown #15.minutes by default
 public: {
     post_count: # 1 by default
+    max_characters: # 0 by default
 }
 ```
 
@@ -62,6 +63,7 @@ Options must be an Hash of theses available options:
 
 ``` ruby
 post_count # 1 by default
+max_characters # 0 by default
 ```
 
 Use the following generator command to override views.
