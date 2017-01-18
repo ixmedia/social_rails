@@ -19,14 +19,8 @@ module IxSocial
       include InstagramPostPart
 
       def to_s(locals = {})
-        locals[:caption] = truncate(caption)
+        locals[:caption] = truncate @content["caption"]["text"]
         super(locals)
-      end
-
-      protected
-
-      def caption
-        @content["caption"]["text"]
       end
     end
 
