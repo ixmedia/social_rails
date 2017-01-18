@@ -1,7 +1,6 @@
 IxSocial::Engine.routes.draw do
 
-  get '/facebook',  to: 'facebook#latest'
-  get '/instagram', to: 'instagram#latest'
-  get '/twitter',   to: 'twitter#latest'
-
+  get '/facebook',  to: 'social#latest', template: 'facebook'
+  get '/instagram', to: 'social#latest', template: 'instagram'
+  get '/twitter',   to: 'social#latest', template: 'twitter'
 end

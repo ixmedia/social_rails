@@ -11,7 +11,7 @@ module IxSocial
       # To use in an view.
       # Ex.: <%= ixsocial(:facebook [, {options}]) %>
       #
-      # @param {Symbol} Must be one of these: `::APIS`
+      # @param {Symbol} Must be one of these: `IxSocial::APIs`
       # @param {Hash} (Optional)
       #
       def ixsocial api, options = {}
@@ -30,7 +30,7 @@ module IxSocial
       IxSocial::APIs.each do |api|
         eval <<-DEF, nil, __FILE__, __LINE__ + 1
           def #{api}_posts
-            posts, the_content = [], content
+            posts, the_content = [], "IxSocial::API::#{api.to_s.capitalize}".constantize.latest
 
             if !the_content.nil?
               config = "IxSocial::API::#{api.to_s.capitalize}".constantize.config
