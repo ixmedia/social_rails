@@ -6,6 +6,7 @@ window.IxSocial = () => {
     twitter: '/social/twitter'
   }
 
+
   const placeholders = document.getElementsByClassName('js-social')
 
   for( let i = 0, len = placeholders.length; i < len; i++ ) {
@@ -31,4 +32,4 @@ window.IxSocial = () => {
 }
 
 /* Auto init */
-document.addEventListener("DOMContentLoaded", () => window.IxSocial())
+window.IxSocial();

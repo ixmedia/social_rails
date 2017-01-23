@@ -33,6 +33,4 @@ window.IxSocial = function () {
 };
 
 /* Auto init */
-document.addEventListener("DOMContentLoaded", function () {
-  return window.IxSocial();
-});
+window.IxSocial();
