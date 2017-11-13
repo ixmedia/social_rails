@@ -9,9 +9,8 @@ module IxSocial
     end
 
     class Tweet < Tag
-
       def to_s(locals = {})
-        locals[:tweet] = @content["html"]
+        locals[:tweet] = @content.html
         super(locals)
       end
     end
