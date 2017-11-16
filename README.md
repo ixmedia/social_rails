@@ -9,7 +9,6 @@ api limits.
 **Gemfile**
 
 ``` ruby
-source 'http://gems.ixmedia.com:9292/'
 gem 'ix_social'
 ```
 
@@ -49,7 +48,7 @@ public: {
 ## Utilisation
 
 > Pour utiliser la cache de Rails en developement:
-> 
+>
 > - cd to your project installation
 > - run `touch tmp/caching-dev.txt`
 
@@ -59,7 +58,7 @@ Use the view helper:
 <%= ixsocial(:facebook [, options={}]) %>
 ```
 
-Options must be an Hash of theses available options: 
+Options must be an Hash of theses available options:
 
 ``` ruby
 post_count # 1 by default
@@ -71,5 +70,3 @@ Use the following generator command to override views.
 ``` ruby
 rails g ix_social:views
 ```
-
-
