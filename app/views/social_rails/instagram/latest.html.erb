@@ -1,0 +1,8 @@
+<% instagram_posts.each do |post| %>
+  <div class="socialrails socialrails--instagram">
+  <%= post.render do -%>
+    <%= picture_tag %>
+    <%= caption_tag %>
+  <% end -%>
+  </div>
+<% end -%>

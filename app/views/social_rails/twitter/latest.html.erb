@@ -1,0 +1,7 @@
+<% twitter_posts.each do |post| %>
+  <div class="socialrails socialrails--twitter">
+  <%= post.render do -%>
+    <%= tweet_tag %>
+  <% end -%>
+  </div>
+<% end -%>

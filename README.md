@@ -1,4 +1,4 @@
-# IxSocial
+# SocialRails
 
 Ease the pain of integrating **Facebook**, **Instagram** and **Twitter** posts in a Rails app. Includes a configurable cache to keep your app from tipping over Facebook and Instagram
 api limits.
@@ -9,30 +9,30 @@ api limits.
 **Gemfile**
 
 ``` ruby
-gem 'ix_social'
+gem 'social_rails'
 ```
 
 **app/assets/javascripts/application.js**
 
 ``` ruby
-//= require ix_social/ix-social.js
+//= require social_rails/social-rails.js
 ```
 
 **config/routes.rb**
 
 ``` ruby
-mount IxSocial::Engine => '/social'
+mount SocialRails::Engine => '/social'
 ```
 
 ---------
 
 ## Configuration
 
-Run `rails g ix_social:config`
+Run `rails g social_rails:config`
 
-Edit `[Your project]/config/initializers/ix_social.rb`
+Edit `[Your project]/config/initializers/social_rails.rb`
 
-Each media options can be configured individually using `IxSocial::[Media].configure` method.
+Each media options can be configured individually using `SocialRails::[Media].configure` method.
 
 ```
 countdown #15.minutes by default
@@ -55,7 +55,7 @@ public: {
 Use the view helper:
 
 ```ruby
-<%= ixsocial(:facebook [, options={}]) %>
+<%= socialrails(:facebook [, options={}]) %>
 ```
 
 Options must be an Hash of theses available options:
@@ -68,5 +68,5 @@ max_characters # 0 by default
 Use the following generator command to override views.
 
 ``` ruby
-rails g ix_social:views
+rails g social_rails:views
 ```

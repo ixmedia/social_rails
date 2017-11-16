@@ -1,4 +1,4 @@
-window.IxSocial = () => {
+window.SocialRails = () => {
 
   const routes = {
     facebook: '/social/facebook',
@@ -32,4 +32,4 @@ window.IxSocial = () => {
 }
 
 /* Auto init */
-window.IxSocial();
+window.SocialRails();
