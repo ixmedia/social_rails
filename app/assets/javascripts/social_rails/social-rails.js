@@ -21,7 +21,7 @@ window.SocialRails = function () {
     xhr.open('GET', routes[namespace]);
 
     xhr.onload = function () {
-      if (xhr.status === 200) node.outerHTML = xhr.responseText;else console.log(xhr.status);
+      if (xhr.status === 200) node.outerHTML = xhr.responseText;
     };
 
     xhr.send();

@@ -22,8 +22,6 @@ window.SocialRails = () => {
     xhr.onload = () => {
       if (xhr.status === 200)
         node.outerHTML = xhr.responseText
-      else
-        console.log(xhr.status)
     }
 
     xhr.send()
