@@ -24,17 +24,21 @@ module SocialRails
         client  = Koala::Facebook::API.new(oAuth.get_app_access_token)
 
         feed = client.get_connection(self.config.page_name, 'posts', {fields: ['link', 'message', 'full_picture'] })
-        self.find_posts(feed)
+        posts = self.find_posts(feed)
+        return posts
       end
 
       # Loop through Facebook feed to find posts with message
       def self.find_posts feed
         items = []
-        feed.each do |item|
-          items.push(item) if item.has_key?("message")
-          return items if items.count == self.config.public[:post_count]
+        while items.count < self.config.public[:post_count] || feed.size == 0
+          feed.each do |item|
+            items.push(item) if item.has_key?("message")
+            return items if items.count == self.config.public[:post_count]
+          end
+          feed = feed.next_page
         end
-        feed.next_page
+        return items
       end
 
     end
