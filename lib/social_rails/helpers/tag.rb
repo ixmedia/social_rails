@@ -18,12 +18,7 @@ module SocialRails
       end
 
       def truncate(the_content)
-        content, max = the_content, @config.public[:max_characters]
-        if content.length > max && max > 0
-          content = content[0..(max - 1)]
-          content << "..."
-        end
-        content
+        the_content.truncate(@config.public[:max_characters], separator: ' ')
       end
 
     end
