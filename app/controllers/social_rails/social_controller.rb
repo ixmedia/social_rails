@@ -1,5 +1,3 @@
-require_dependency "social_rails/application_controller"
-
 module SocialRails
   class SocialController < SocialRails::ApplicationController
     def latest
