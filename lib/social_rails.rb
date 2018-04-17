@@ -6,7 +6,9 @@ module SocialRails
     cooldown: 15.minutes,
     public: {
       max_characters: 0,
-      post_count: 1
+      post_count: 1,
+      refresh: false,
+      refresh_time: 15.minutes.in_milliseconds
     }
   }
 

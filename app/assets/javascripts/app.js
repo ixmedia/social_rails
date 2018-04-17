@@ -6,27 +6,29 @@ window.SocialRails = () => {
     twitter: '/social/twitter'
   }
 
+  for (const placeholder of document.getElementsByClassName('js-social')) {
+    const namespace = placeholder.dataset.namespace
+    const node      = document.getElementById(`social-${namespace}`)
+    const options   = JSON.parse(node.dataset.options)
+    node.dataset.options = []
+    update_social_content(placeholder, { namespace, node, options })
+  }
 
-  const placeholders = document.getElementsByClassName('js-social')
-
-  for( let i = 0, len = placeholders.length; i < len; i++ ) {
-
-    let namespace   = placeholders[i].dataset.namespace
-    let node        = document.getElementById('social-' + namespace)
-    let options     = node.dataset.options
-    let xhr         = new XMLHttpRequest();
-
-    // xhr.open('GET', `${routes[namespace]}?options=${options}`);
+  function update_social_content (placeholder, {namespace, node, options}) {
+    const xhr = new XMLHttpRequest()
     xhr.open('GET', routes[namespace])
 
     xhr.onload = () => {
-      if (xhr.status === 200)
-        node.outerHTML = xhr.responseText
-    }
+      if (xhr.status === 200) {
+        node.innerHTML = xhr.responseText
+      }
 
+      if (options.refresh === true) {
+        setTimeout(() => update_social_content(placeholder, { namespace, node, options }), options.refresh_time)
+      }
+    }
     xhr.send()
   }
-
 }
 
 /* Auto init */

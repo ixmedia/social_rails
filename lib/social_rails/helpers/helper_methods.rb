@@ -18,7 +18,7 @@ module SocialRails
         if valid_media(api)
           api = "SocialRails::API::#{api.to_s.capitalize}".constantize
           api.set_public_options(options)
-          render partial: 'social_rails/shared/placeholder', locals: {namespace: api.uid}
+          render partial: 'social_rails/shared/placeholder', locals: {namespace: api.uid, options: api.config["public"]}
         end
       end
 
