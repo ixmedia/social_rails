@@ -39,6 +39,8 @@ countdown #15.minutes by default
 public: {
     post_count: # 1 by default
     max_characters: # 0 by default
+    refresh: # false by default
+    refresh_time: # 15.minutes.in_milliseconds by default
 }
 ```
 
@@ -63,6 +65,8 @@ Options must be an Hash of theses available options:
 ``` ruby
 post_count # 1 by default
 max_characters # 0 by default
+refresh # false by default
+refresh_time # 900000 (15 minutes) in milliseconds
 ```
 
 Use the following generator command to override views.
