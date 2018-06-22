@@ -8,33 +8,15 @@ window.SocialRails = function () {
     twitter: '/social/twitter'
   };
 
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+  var placeholders = document.getElementsByClassName('js-social');
 
-  try {
-    for (var _iterator = document.getElementsByClassName('js-social')[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var placeholder = _step.value;
-
-      var namespace = placeholder.dataset.namespace;
-      var node = document.getElementById('social-' + namespace);
-      var options = JSON.parse(node.dataset.options);
-      node.dataset.options = [];
-      update_social_content(placeholder, { namespace: namespace, node: node, options: options });
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
+  for (var i = 0, len = placeholders.length; i < len; i++) {
+    var placeholder = placeholders[i];
+    var namespace = placeholder.dataset.namespace;
+    var node = document.getElementById('social-' + namespace);
+    var options = JSON.parse(node.dataset.options);
+    node.dataset.options = [];
+    update_social_content(placeholder, { namespace: namespace, node: node, options: options });
   }
 
   function update_social_content(placeholder, _ref) {

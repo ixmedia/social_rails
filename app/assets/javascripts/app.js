@@ -6,7 +6,10 @@ window.SocialRails = () => {
     twitter: '/social/twitter'
   }
 
-  for (const placeholder of document.getElementsByClassName('js-social')) {
+  const placeholders = document.getElementsByClassName('js-social')
+
+  for( let i = 0, len = placeholders.length; i < len; i++ ) {
+    const placeholder = placeholders[i]
     const namespace = placeholder.dataset.namespace
     const node      = document.getElementById(`social-${namespace}`)
     const options   = JSON.parse(node.dataset.options)
