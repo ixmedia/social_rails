@@ -34,10 +34,10 @@ module SocialRails
 
             if !the_content.nil?
               config = "SocialRails::API::#{api.to_s.capitalize}".constantize.config
-              for i in 0..config.public[:post_count] - 1
+              the_content.each do |post_content|
                 posts.push("SocialRails::Helpers::#{api.to_s.capitalize}".constantize.new(
                   self,
-                  the_content[i],
+                  post_content,
                   SocialRails::API::#{api.to_s.capitalize}.uid,
                   config
                 ))
