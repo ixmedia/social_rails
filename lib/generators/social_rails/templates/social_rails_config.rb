@@ -25,3 +25,11 @@ SocialRails::API::Twitter.configure do |config|
   #config.access_token_secret = ""
   #config.twitter_name        = ""
 end
+
+DetectLanguage.configure do |config|
+  # https://detectlanguage.com/
+  config.api_key = "YOUR API KEY"
+
+  # enable secure mode (SSL) if you are passing sensitive data
+  # config.secure = true
+end

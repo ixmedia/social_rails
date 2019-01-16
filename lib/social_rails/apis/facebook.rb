@@ -32,7 +32,10 @@ module SocialRails
         items = []
         while items.count < self.config.public[:post_count] || feed.size == 0
           feed.each do |item|
-            items.push(item) if item.has_key?("message")
+            next unless item.has_key?("message")
+            next unless lang_is_detected?(item["message"])
+
+            items.push(item)
             return items if items.count == self.config.public[:post_count]
           end
           feed = feed.next_page

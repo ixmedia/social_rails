@@ -4,6 +4,7 @@ module SocialRails
     class Base
 
       include Cache
+      include Language
 
       class << self
         attr_accessor :uid

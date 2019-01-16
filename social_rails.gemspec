@@ -16,8 +16,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", ">= 4.0"
+  s.add_dependency "rails", ">= 4", '~> 5.0'
   s.add_runtime_dependency 'koala', '~> 2.4'
   s.add_runtime_dependency 'httparty', '~> 0.13'
   s.add_runtime_dependency 'twitter', '>= 6.0.0', '~> 6.0'
+  s.add_runtime_dependency 'detect_language', '~> 1.1'
 end

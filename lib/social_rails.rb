@@ -15,6 +15,7 @@ module SocialRails
 end
 
 require 'social_rails/cache'
+require 'social_rails/language'
 require 'social_rails/apis/base'
 require 'social_rails/apis/facebook'
 require 'social_rails/apis/instagram'

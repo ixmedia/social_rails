@@ -27,8 +27,11 @@ module SocialRails
           access_token_secret: self.config.access_token_secret
         })
 
-        latest_tweets = client.user_timeline(self.config.twitter_name, { exclude_replies: true, include_rts: false }).first(self.config.public[:post_count])
-        tweets        = latest_tweets.map{ |t| client.oembed(t.id, {lang: 'fr'}) }
+        latest_tweets = client.user_timeline(self.config.twitter_name, { exclude_replies: true, include_rts: false, count: 20 })
+
+        latest_tweets.select!{ |t| languages.include? t.lang } if localized?
+
+        latest_tweets.map!{ |t| client.oembed(t.id, {lang: default_lang}) }
       end
 
     end
